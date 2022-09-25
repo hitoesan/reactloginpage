@@ -31,9 +31,6 @@ pages:
   artifacts:
     paths:
       - public
-<<<<<<< HEAD
-=======
   only:
     - main
 
->>>>>>> 9b934806d10946f9c3f3f49be115a5fc2070e468
