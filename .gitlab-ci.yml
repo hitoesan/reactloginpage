@@ -1,43 +1,18 @@
-image: node:latest
+image: node
 
-#include:
-#  - template: Security/SAST.gitlab-ci.yml
-
-cache:
-  paths:
-    - node_modules/
-  
-build-job:
-    stage: build
-    script:
-        - npm install
-        - npm install gh-pages --save-dev
-
-    artifacts:
-        paths:
-            - node_modules/
-
-test-job1:
-    stage: test
-    script:
-        - echo "SAST testing"
-
-deploy-prod:
-    stage: deploy
-    script:
-        - git status
-        - git config --global user.email "gabriela.gondo@hotmail.com"
-        - git config --global user.name "Gabriela Gondo"
-        - git remote set-url origin https://hitoesan:@@00coracao@github.com/hitoesan/reactloginpage.git
-        - npm run deploy
-
-    artifacts:
-        paths:
-            - node_modules/
-            
-    after_script:
-        - echo "finished"
-        - ls
-        - bash ./telegram_notification.sh
-
-
+pages:
+  stage: deploy
+  cache:
+    paths:
+      - node_modules/
+  script:
+    - npm install
+    - npm run build
+    - rm -rf public
+    - cp build/index.html build/404.html
+    - mv build public
+  artifacts:
+    paths:
+      - public
+  only:
+    - master
