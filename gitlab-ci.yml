@@ -1,0 +1,20 @@
+image: node:latest
+
+build-job:
+    stage: build
+    script:
+        - node -V
+
+test-job1:
+    stage: test
+    script:
+        - npm start
+
+deploy-prod:
+    stage: deploy
+    script:
+        - echo "finished"
+
+
+
+
