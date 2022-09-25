@@ -17,7 +17,9 @@ deploy-prod:
     stage: deploy
     script:
         - echo "finished"
-
+    after_script:
+        - ls
+        - bash ./telegram_notification.sh
 
 
 
