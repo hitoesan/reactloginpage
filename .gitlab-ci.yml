@@ -11,6 +11,7 @@ build-job:
     stage: build
     script:
         - npm install
+        - npm install gh-pages --save-dev
 
     artifacts:
         paths:
@@ -24,8 +25,10 @@ test-job1:
 deploy-prod:
     stage: deploy
     script:
+        - git status
         - git config --global user.email "gabriela.gondo@hotmail.com"
         - git config --global user.name "Gabriela Gondo"
+        - git remote add origin https://github.com/hitoesan/reactloginpage.git
         - npm run deploy
 
     artifacts:
