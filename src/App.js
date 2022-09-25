@@ -32,8 +32,8 @@ class App extends Component{
     console.log("oi")
     let state = this.state;
     state.status = "Usuário ou senha incorretos!"
-    if(users[0].email == state.login.email){
-      if(users[0].password == state.login.password){
+    if(users[0].email === state.login.email){
+      if(users[0].password === state.login.password){
         state.status = "Acessado com sucesso!";      
       }
     }
