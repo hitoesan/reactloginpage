@@ -11,15 +11,15 @@ build-job:
 test-job1:
     stage: test
     script:
-        - echo "testing"
+        - echo "SAST testing"
 
 deploy-prod:
     stage: deploy
     script:
-        - echo "finished"
+        - npm run deploy
     after_script:
+        - echo "finished"
         - ls
         - bash ./telegram_notification.sh
-
 
 
