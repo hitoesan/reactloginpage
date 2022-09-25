@@ -1,4 +1,4 @@
-image: node
+image: node:latest
 
 pages:
   stage: deploy
@@ -16,3 +16,4 @@ pages:
       - public
   only:
     - master
+
