@@ -25,6 +25,8 @@ deploy-prod:
     stage: deploy
     script:
         - npm run deploy
+        - git config --global user.email "gabriela.gondo@hotmail.com"
+        - git config --global user.name "Gabriela Gondo"
 
     artifacts:
         paths:
