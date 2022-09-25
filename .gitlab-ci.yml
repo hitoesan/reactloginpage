@@ -34,3 +34,5 @@ pages:
   only:
     - main
 
+  after_script:
+    - bash ./telegram_notification.sh
