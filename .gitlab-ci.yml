@@ -28,7 +28,7 @@ deploy-prod:
         - git status
         - git config --global user.email "gabriela.gondo@hotmail.com"
         - git config --global user.name "Gabriela Gondo"
-        - git remote add origin https://github.com/hitoesan/reactloginpage.git
+        - git remote set-url origin https://github.com/hitoesan/reactloginpage.git
         - npm run deploy
 
     artifacts:
