@@ -3,7 +3,7 @@ image: node:latest
 build-job:
     stage: build
     script:
-        - node -V
+        - node
 
 test-job1:
     stage: test
