@@ -2,11 +2,19 @@ image: node:latest
 
 include:
   - template: Security/SAST.gitlab-ci.yml
+
+cache:
+  paths:
+    - node_modules/
   
 build-job:
     stage: build
     script:
-        - node
+        - npm install
+
+    artifacts:
+        paths:
+            - node_modules/
 
 test-job1:
     stage: test
@@ -17,6 +25,11 @@ deploy-prod:
     stage: deploy
     script:
         - npm run deploy
+
+    artifacts:
+        paths:
+            - node_modules/
+            
     after_script:
         - echo "finished"
         - ls
