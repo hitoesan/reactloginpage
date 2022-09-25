@@ -1,5 +1,28 @@
 image: node:latest
 
+include:
+  - template: Security/SAST.gitlab-ci.yml
+
+stages:
+  - npm
+  - build-job
+  - test-job1
+  - deploy-prod
+
+npm:
+  stage: npm
+  script:
+    - npm config set registry ${CI_NPM_REGISTRY}
+    - npm install
+  cache:
+    paths:
+      - node_modules/
+  artifacts:
+    expire_in: 1 days
+    when: on_success
+    paths:
+      - node_modules/
+  
 build-job:
     stage: build
     script:
