@@ -25,7 +25,7 @@ send_msg () {
 # characters, since they're reserved in bash
 send_msg "
 -------------------------------------
-Travis build *${build_status}!*
+Build *${CI_JOB_STATUS}!*
 \`Repository:  ${TRAVIS_REPO_SLUG}\`
 \`Branch:      ${TRAVIS_BRANCH}\`
 *Commit Msg:*
